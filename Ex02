@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class Ex02 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        double x0, y0, a, b, c;
+        System.out.print("Digite x0: ");
+        x0 = sc.nextDouble();
+        System.out.print("Digite y0: ");
+        y0 = sc.nextDouble();
+        System.out.print("Digite a: ");
+        a = sc.nextDouble();
+        System.out.print("Digite b: ");
+        b = sc.nextDouble();
+        System.out.print("Digite c: ");
+        c = sc.nextDouble();
+        
+        double numerador = Math.abs(a * x0 + b * y0 + c);
+        double denominador = Math.sqrt((a * a) + (b * b));
+        double distancia = numerador / denominador;
+        
+        System.out.println("a distância entre P e s é: " + distnacia);
+        sc.close();
+    }
+}
