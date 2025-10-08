@@ -1,0 +1,75 @@
+import java.util.Scanner;
+
+public class Ex03 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        String nome;
+        double n1, n2, media;
+        int total = 0, aprov = 0, reprov = 0, exame = 0;
+        double somaMedias = 0, maiorMedia = -1, menorMedia = 11;
+        String nomeMaior = "", nomeMenor = "";
+        char continuar;
+        
+        do {
+            System.out.print("nome do aluno: ");
+            nome = sc.next();
+            
+            System.out.print("nota 1: ");
+            nota1 = sc.nextDouble();
+            while (n1 < 0 || n1 > 10) {
+                System.out.print("nota inválida! por favor, digite novamente: ");
+                n1 = sc.nextDouble();
+            }
+            
+            System.out.print("nota 2: ");
+            nota2 = sc.nextDouble();
+            while (n2 < 0 || n2 > 10) {
+                System.out.print("nota inválida! por favor, digite novamente: ");
+                n2 = sc.nextDouble();
+            }
+
+            media = (n1 + n2) / 2;  
+            System.out.println(nome + " obteve média: " + media);
+            
+            if (media < 4) {
+                System.out.println("situação: reprovado");
+                reprov++;
+            } else if (media > 4 && media < 6) { 
+                System.out.println("situação: exame");
+                exame++;
+            } else {
+                System.out.println("situação: aprovado");
+                aprov++;
+            }
+
+            somaMedias += n1; 
+            total++;
+            
+            if (media > maiorMedia) {
+                maiorMedia = media;
+                nomeMaior = nome;
+            }
+            
+            if (media < menorMedia) {
+                menorMedia = media;
+                nomeMenor = nome;
+            }
+
+            System.out.print("deseja cadastrar outro aluno? (s/n): ");
+            continuar = sc.next().charAt(0);
+            
+        } while (continuar == 's' || continuar == 'S');
+        
+        System.out.println("\n RESULTADOS FINAIS");
+        System.out.println("total de alunos: " + total);
+        System.out.println("aprovados: " + aprov);
+        System.out.println("reprovados: " + reprov);
+        System.out.println("em exame: " + exame);
+        System.out.println("média da classe: " + (somaMedias / total));
+        System.out.println("maior média: " + nomeMaior + " com " + maiorMedia);
+        System.out.println("menor média: " + nomeMenor + " com " + menorMedia);
+        
+        sc.close();
+    }
+}
